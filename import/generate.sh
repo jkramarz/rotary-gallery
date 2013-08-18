@@ -1,12 +1,11 @@
 #!/bin/bash -e
-ls | grep DSC > /dev/null;
-if [ $? == 0 ]
-then
+ls | grep DSC > /dev/null && {
 	for i in DSC*;
 		do
 			mv $i $(echo $i | cut -d '_' -f 2 | cut -d '.' -f 1)".jpg";
 		done
-fi;
+} || true
+
 echo "Striping EXIF tags...";
 jhead -dc -di -dx -dt *.jpg;
 echo "Generating thumbnails...";
