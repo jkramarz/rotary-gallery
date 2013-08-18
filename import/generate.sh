@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 ls | grep DSC > /dev/null;
 if [ $? == 0 ]
 then
